@@ -1,6 +1,15 @@
-import { x } from './another';
+import 'dotenv/config';
+import http from 'http';
+import { database } from './defaultData';
 
-console.log('Hello World!');
-x();
+const PORT = process.env['PORT'] || 5000;
+http
+  .createServer((req, res) => {
+    if (req) {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(database));
+    }
+  })
+  .listen(PORT);
 
-console.log('another');
+console.log(`Server is running on port: ${PORT}`);
