@@ -1,15 +1,8 @@
-import 'dotenv/config';
-import http from 'http';
-import { database } from './defaultData';
+import { Controller } from "./controller";
+import { Model } from "./model";
+import { RESTAPIServer } from "./server";
 
-const PORT = process.env['PORT'] || 5000;
-http
-  .createServer((req, res) => {
-    if (req) {
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(database));
-    }
-  })
-  .listen(PORT);
-
-console.log(`Server is running on port: ${PORT}`);
+const model = new Model();
+const controller = new Controller(model)
+const server = new RESTAPIServer(controller)
+server.init();
