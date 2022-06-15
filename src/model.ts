@@ -1,9 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
 import { database } from './defaultData';
 import type { IUser, SearchResult, UserPayload } from './settings';
-import { v4 as uuidv4 } from 'uuid';
 
 export class Model {
   private data: IUser[];
+
   constructor() {
     this.data = [...database];
   }
@@ -20,12 +21,11 @@ export class Model {
       const user = this.data.filter((record, index) => {
         if (record.id === id) {
           i = index;
-          return true
-        } else {
-          return false;
+          return true;
         }
+        return false;
       });
-      resolve({user: user[0] || {}, index: i});
+      resolve({ user: user[0] || {}, index: i });
     });
   }
 
@@ -45,10 +45,15 @@ export class Model {
   }
 
   updateUser(user: UserPayload, id: string): Promise<IUser> {
-    return new Promise(async (resolve) => {
+    // eslint-disable-next-line no-async-promise-executor
+    return new Promise(async (resolve, reject) => {
       const record = await this.getUser(id);
       const newUser: IUser = { ...record.user as IUser, ...user };
-      this.data[record.index] = newUser;
+      if (record.index >= 0) {
+        this.data[record.index] = newUser;
+      } else {
+        reject();
+      }
       resolve(newUser);
     });
   }

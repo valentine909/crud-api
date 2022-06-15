@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start:dev": "nodemon --watch \"./**/*.ts\" --exec \"node --experimental-specifier-resolution=node --no-warnings --loader ts-node/esm\" src/index.ts",
-    "start:prod": "tsc && node --experimental-specifier-resolution=node --no-warnings --loader ts-node/esm ./dist/index.js"
+    "start:prod": "tsc && node --experimental-specifier-resolution=node --no-warnings --loader ts-node/esm ./dist/index.js",
+    "list": "eslint \"**/*.ts\""
   },
   "keywords": [],
   "author": "",

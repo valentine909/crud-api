@@ -12,17 +12,12 @@ export type SearchResult = {
   index: number;
 };
 
-export enum Endpoit {
-  endpoit = '/api/users',
-}
-export const uuidReg = new RegExp(
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
-);
+export const endpoint = '/api/users';
 
-export enum Messages {
-  notFound = 'Record not found',
-  serverError = 'Internal Server Error',
-  invalidUser = 'Invalid user ID',
-  notEnoughData = 'Not enough data',
-  deleted = 'User has been deleted successfully',
-}
+export const Messages = {
+  notFound: 'Record not found',
+  serverError: 'Internal Server Error',
+  invalidUser: 'Invalid user ID',
+  notEnoughData: 'Not enough data',
+  deleted: 'User has been deleted successfully',
+};
