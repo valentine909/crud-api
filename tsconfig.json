@@ -24,7 +24,7 @@
     "outDir": "./dist"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "build"],
+  "exclude": ["node_modules", "build", "test"],
   "ts-node": {
     "esm": true
   }

@@ -1,13 +1,13 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   extends: ['airbnb-base'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
   rules: {
@@ -15,6 +15,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'dot-notation': 'off',
     'import/no-unresolved': 'off',
-    'import/extensions': 'off'
-  }
+    'import/extensions': 'off',
+  },
+  ignorePatterns: ['**/test/*.ts'],
 };
