@@ -45,7 +45,6 @@ export class Controller {
     } catch (error) {
       Controller.createResponse(res, 500, { message: Messages.serverError });
     }
-    throw new Error('Method not implemented.');
   }
 
   async updateUser(req: IncomingMessage, res: ServerResponse, id: string) {
