@@ -23,7 +23,7 @@ export class RESTAPIServer {
           Controller.notFound(res);
         } else if (req.method === 'POST') {
           this.controller.createUser(req, res).then();
-        } else if (req.method === 'GET' && req.url === endpoint) {
+        } else if (req.method === 'GET' && (req.url === endpoint || req.url === `${endpoint}/`)) {
           this.controller.getAll(res).then();
         } else if (!isValidId(id)) {
           Controller.invalidUserId(res);
