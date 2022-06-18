@@ -36,6 +36,9 @@ export class RESTAPIServer {
         } else {
           Controller.notFound(res);
         }
+        if (process.send) {
+          process.send({ pid: process.pid });
+        }
       })
       .listen(this.port, () => {
         console.log(`[${new Date().toLocaleTimeString()}]: Server is running on port ${this.port}`);
