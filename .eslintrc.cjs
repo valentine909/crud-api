@@ -14,7 +14,8 @@ module.exports = {
     'no-console': 'off',
     'import/prefer-default-export': 'off',
     'dot-notation': 'off',
-    'import/no-unresolved': 'never',
-    'import/extensions': 'never',
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
   },
+  ignorePatterns: ['**/test/*.ts'],
 };
